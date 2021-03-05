@@ -1,0 +1,158 @@
+// px to rem
+@function rem($pixels, $context: $font__size) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+
+@mixin size($width,$height: $width) {
+  display: flex;
+
+  width: $width;
+  height: $height;
+}
+
+// z-index
+@function z($name, $z-indexes-list: $z-indexes) {
+  @if index($z-indexes-list, $name) {
+    @return (length($z-indexes-list) - index($z-indexes-list, $name)) + 1;
+  } @else {
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes-list}';
+
+    @return null;
+  }
+}
+
+// List
+$z-indexes: (
+        'modal',
+        'nav',
+        'header',
+        'top-content',
+        'content',
+        'bg-content',
+        'footer'
+);
+
+@function is-direction($value) {
+  $is-keyword: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
+  $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));
+  @return $is-keyword or $is-angle;
+}
+
+@function legacy-direction($value) {
+  $conversion-map: (
+          to top : bottom,
+          to top right : bottom left,
+          to right top : left bottom,
+          to right : left,
+          to bottom right : top left,
+          to right bottom : left top,
+          to bottom : top,
+          to bottom left : top right,
+          to left bottom : right top,
+          to left : right,
+          to left top : right bottom,
+          to top left : bottom right
+  );
+  @if is-direction($value) == false {
+    @error 'Cannot convert `#{$value}` to legacy syntax because it doesn\'t seem to be a direction.';
+  }
+
+  @if map-has-key($conversion-map, $value) {
+    @return map-get($conversion-map, $value);
+  }
+
+  @return 90deg - $value;
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+  // Direction has been omitted and happens to be a color-stop
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+}
+
+@mixin pseudoElement($width,$url: null,$position: absolute) {
+  @include size($width);
+  position: $position;
+  display: block;
+
+  content: '';
+  @if ($url != null) {
+    position: center;
+
+    background-image: url($iconsPath + $url);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+  $src: null;
+  $extmods: (
+          eot: '?',
+          svg: '#' + str-replace($name, ' ', '_')
+  );
+  $formats: (
+          otf: 'opentype',
+          ttf: 'truetype'
+  );
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + '.' + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-weight: $weight;
+    font-style: $style;
+
+    font-display: swap;
+    src: $src;
+  }
+}
+
+
+@mixin ie11() {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin grid-implicit($max_elements,$cols,$cell-width,$gird-gap) {
+  grid: {
+    column-gap: $gird-gap;
+    template: {
+      rows: repeat(#{ceil($max_elements/$cols)}, auto);
+      columns: repeat($cols, $cell-width);
+    };
+  }
+}
+
+

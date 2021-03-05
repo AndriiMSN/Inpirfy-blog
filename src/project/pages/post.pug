@@ -1,0 +1,159 @@
+extends ../layout/base
+
+block variables
+	- let title = 'post'
+
+
+block content
+	.page
+		.page__content.post-content
+			.post-content__header.header-content
+				.header-content__container.container
+					.header-content__subtitle
+						a(href="#") CATEGORY
+						span 10 MIN READ
+					.header-content__title Wanderlust By Design :: The Rooms At Maison De La Luz In New Orleans
+					.header-content__author
+						img(src="/assets/img/category/01.jpg")
+						span Juanita Nguyen
+					.header-content__data-publication Feb 17, 2020
+			.post-content__img.img-content
+				.img-content__container.container
+					img(src="/assets/img/category/01.jpg")
+			.post-content__body.body-content
+				.body-content__container.container
+					.body-content__info
+						p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. 
+						p Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+						a.body-content__video.popup-link.icon-play(href="#video" data-video="vx2u5uUu3DE")
+							img(src="/assets/img/video/video-02.jpg")
+						.body-content__title Lorem Ipsum Dolor Sit Amet 
+						p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+						.body-content__quote.quote-content
+							.quote-content__icon
+								img(src="/assets/img/icons/quote.svg")
+							.quote-content__text Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et 
+							.quote-content__author
+								img(src="/assets/img/category/01.jpg")
+								span Juanita Nguyen
+						p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing
+			.post-content__footer.footer-content
+				.footer-content__container.container
+					.footer-content__hashtag.hashtag
+						.hashtag__item
+							a(href="#" rel="tag") Hashtag
+						.hashtag__item
+							a(href="#" rel="tag") Hashtag
+						.hashtag__item
+							a(href="#" rel="tag") Hashtag
+						.hashtag__item
+							a(href="#" rel="tag") Hashtag
+					.footer-content__like
+						a(href="#").active
+							img(src="/assets/img/icons/likeblog.svg")
+						span 14K likes
+			.post-content__comments.comments 
+				.comments__container.container 
+					.comments__header.header-comments
+						.header-comments__title Comments
+							.header-comments__sum (32)
+						button.header-comments__write-comment Write comment
+					.comments__body
+						.comments__item.comment
+							.comment__head.head-comment
+								.head-comment__column
+									img(src="/assets/img/video/video-02.jpg")
+								.head-comment__column
+									.head-comment__author Imam Farrhouk
+									.head-comment__data December 5, 2019
+							.comment__body
+								p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing 
+							.comment__footer.footer-comment
+								.footer-comment__likes
+									span.likes-wrapper 47 likes
+								a.footer-comment__reply Reply
+							.comments-area-reply
+								.comment-respond
+									h2.comment-reply-title Leave a comment 
+									form.comment-form
+										p.comment-form-comment
+											label(for="comment")
+											textarea(name="comment" id="comment" maxlength="65525" required="required" placeholder="Enter message")
+											img(id="comment" src="/assets/img/video/video-02.jpg")
+										p.form-submit
+											input.submit(name="submit" type="submit" id="submit")
+											input(type="hidden" name="comment_post_ID" id="comment_post_ID" value="42")
+											input(type="hidden" name="comment_parent" id="comment_parent" value="0")
+						.comments__item.comment
+							.comment__head.head-comment
+								.head-comment__column
+									img(src="/assets/img/video/video-02.jpg")
+								.head-comment__column
+									.head-comment__author Imam Farrhouk
+									.head-comment__data December 5, 2019
+							.comment__body
+								p Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing 
+							.comment__footer.footer-comment
+								.footer-comment__likes
+									span.likes-wrapper 47 likes
+								a.footer-comment__reply Reply
+							.comment__button-wrapper
+								.comment__btn View replies
+									span (12)
+							.comment__message.message-reply
+								.message-reply__body
+									.message-reply__column
+										img(src="/assets/img/video/video-02.jpg")
+									.message-reply__column
+										.message-reply__name Imam Farrhouk
+										.message-reply__text This is rendering?? Or photography??
+								.message-reply__footer
+									.message-reply__time 4 min ago
+									.message-reply__likes
+										span.likes-wrapper.active 47 likes
+									.message-reply__reply Reply
+								.comments-area-reply.comments-area
+									.comment-respond
+										h2.comment-reply-title Leave a comment 
+										form.comment-form
+											p.comment-form-comment
+												label(for="comment")
+												textarea(name="comment" id="comment" maxlength="65525" required="required" placeholder="Enter message")
+												img(id="comment" src="/assets/img/video/video-02.jpg")
+											p.form-submit
+												input.submit(name="submit" type="submit" id="submit")
+												input(type="hidden" name="comment_post_ID" id="comment_post_ID" value="42")
+												input(type="hidden" name="comment_parent" id="comment_parent" value="0")
+							.comments-area-reply
+								.comment-respond
+									h2.comment-reply-title Leave a comment 
+									form.comment-form
+										p.comment-form-comment
+											label(for="comment")
+											textarea(name="comment" id="comment" maxlength="65525" required="required" placeholder="Enter message")
+											img(id="comment" src="/assets/img/video/video-02.jpg")
+										p.form-submit
+											input.submit(name="submit" type="submit" id="submit")
+											input(type="hidden" name="comment_post_ID" id="comment_post_ID" value="42")
+											input(type="hidden" name="comment_parent" id="comment_parent" value="0")
+						.comments-area
+							.comment-respond
+								h2.comment-reply-title Leave a comment 
+								form.comment-form
+									p.comment-form-comment
+										label(for="comment")
+										textarea(name="comment" id="comment" maxlength="65525" required="required" placeholder="Enter message")
+										img(id="comment" src="/assets/img/video/video-02.jpg")
+									p.form-submit
+										input.submit(name="submit" type="submit" id="submit")
+										input(type="hidden" name="comment_post_ID" id="comment_post_ID" value="42")
+										input(type="hidden" name="comment_parent" id="comment_parent" value="0")
+					a.comments__load-more(href="#") Load more
+			.page__like.like-post
+				a.active(type="button")
+					img(src="/assets/img/icons/likeblog.svg")
+	.popup.popup_video(id="video")
+		.popup__content
+			.popup__body
+				.popup__close.popup__close_video.icon-close
+				.popup__video._video Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat, similique.

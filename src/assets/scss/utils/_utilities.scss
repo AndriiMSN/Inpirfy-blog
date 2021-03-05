@@ -1,0 +1,123 @@
+.show {
+  &-flex {
+    display: flex !important;
+  }
+  &-block {
+    display: block !important;
+  }
+  &-opacity {
+    opacity: 1 !important;
+  }
+}
+.hide {
+  &-display {
+    display: none !important;
+  }
+  &-opacity {
+    opacity: 0 !important;
+  }
+}
+// input
+// label
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  margin: 10px 0 0 20px;
+
+  & + label {
+    position: relative;
+    padding: 0 0 0 30px;
+    cursor: pointer;
+
+    &:before {
+      @include pseudoElement(20px);
+      top: 0;
+      left: 0;
+
+      transition: .2s;
+      border:1px solid black;
+    }
+
+    &:after {
+      @include pseudoElement(12px);
+      top: 4px;
+      left: 4px;
+      background: $color__light;
+      transition: .2s;
+    }
+  }
+
+  &:checked {
+    & + label:before {
+      //background: #fff;
+    }
+
+    & + label:after {
+      background: black;
+    }
+  }
+}
+
+//label.switch
+//  input.checkbox
+//  span.slider.round
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+
+  input {
+    width: 0;
+    height: 0;
+
+    opacity: 0;
+  }
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+  transition: .4s;
+  background-color: #ccc;
+
+  &:before {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    width: 26px;
+    height: 26px;
+    content: '';
+    transition: .4s;
+    background-color: white;
+  }
+
+  &.round {
+    border-radius: 34px;
+
+    &:before {
+      border-radius: 50%;
+    }
+  }
+}
+
+input {
+  &:checked + .slider {
+    background-color: #2196f3;
+
+    &:before {
+      transform: translateX(26px);
+    }
+  }
+
+  &:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+}
+

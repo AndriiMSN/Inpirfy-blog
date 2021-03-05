@@ -1,0 +1,33 @@
+//- mixin Img(name,type,alt)
+
+//-     -
+//-       function imgName(path) {return path.split('/')[path.split('/').length - 1];};
+//-       function picName(path) {return path.split('/')[path.split('/').length - 1].split('.')[0]+'.';};
+//-       function newImgFolderPath(path) {return path.replace(new RegExp(`${imgName(name)}`, "g"), "");}
+//-       function imgAlt(name) {return 'image-'+ imgName(name).split('.')[0]}
+//-       function imgAlt(name, alt) {return alt === undefined ? 'image-' + imgName(name).split('.')[0] : alt}
+//-       let ext = ['jxr', 'jp2', 'webp'];
+
+//-       imageAlt = imgAlt(name);
+//-       imageNewPath = type!=='icon'?
+//-               require(`~/assets/img/${newImgFolderPath(name)+imgName(name)}`) :
+//-               require(`~/assets/icons/${newImgFolderPath(name)+imgName(name)}`);
+
+//-     .img-wrap
+//-       case type
+//-         default
+//-           img(src=imageNewPath.default, alt=imageAlt, loading="lazy")
+//-         when 'lazy'
+//-           img(class='lazy',data-src=imageNewPath.default, alt=imageAlt)
+//-         when 'pic'
+//-           picture
+//-             each pictures,index in ext
+//-               - let imagePicPath = require(`~/assets/img/${newImgFolderPath(name)+picName(name)+pictures}`);
+//-               source(src=imagePicPath.default, type=index === 0 ? 'image/vnd.ms-photo':'image/' + pictures)
+//-             img(src=imageNewPath.default, alt=imageAlt)
+//-         when 'pic-lazy'
+//-           picture(class='lazy')
+//-             each pictures,index in ext
+//-               - let imagePicPath = require(`~/assets/img/${newImgFolderPath(name)+picName(name)+pictures}`);
+//-               source(data-srcset=imagePicPath.default, type=index === 0 ? 'image/vnd.ms-photo':'image/' + pictures)
+//-             img(data-srcset=imageNewPath.default, alt=imageAlt)
