@@ -1,6 +1,7 @@
 import "./utils/slider";
 import "./utils/readysolutions";
 import './utils/sub-header'
+import  './utils/menu'
 
 //Тег img переводим в background===============================================================================================================================================================
 function ibg() {

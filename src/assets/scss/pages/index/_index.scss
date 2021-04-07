@@ -1,12 +1,10 @@
 .sub-header {
   margin-top: 75px;
   position: fixed;
-
-  z-index: 100;
   width: 100%;
   display: flex;
   justify-content: center;
-
+  z-index: 50;
 
   background: #ffffff;
   transition: all .2s;
@@ -126,6 +124,19 @@
           background-color: #000;
 
           transition: all 0.3s;
+        }
+
+        &.more {
+          &:after {
+            content: url("/src/assets/img/Vector.png");
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: -15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
         }
       }
     }
@@ -744,5 +755,129 @@
     }
 
     margin-top: 40px;
+  }
+}
+
+.mob-menu-ctg {
+  width: 100vw;
+  min-width: 320px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: rgba(#000, 0.5);
+  overflow: hidden;
+  transform: translateX(100%);
+
+  &.open {
+    transform: translateX(0);
+  }
+
+  .wrapper-mob {
+    width: 90vw;
+    max-width: 650px;
+    margin-left: auto;
+    padding: 20px 50px;
+    background: #fff;
+    height: 100%;
+    overflow: scroll;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      p {
+        font-family: Segoe UI;
+        font-style: normal;
+        font-weight: 600;
+        font-size: calc(14px + 1vw);
+        line-height: 32px;
+        letter-spacing: -0.02em;
+      }
+
+      button {
+        border: none;
+        outline: none;
+        background: transparent;
+
+      }
+    }
+
+    .nav {
+      padding: 25px 0;
+
+      li {
+        list-style: none;
+        line-height: 30px;
+        margin-bottom: 15px;
+
+        &.hide {
+          position: absolute !important;
+          opacity: 0 !important;
+          visibility: hidden !important;
+          pointer-events: none !important;
+        }
+
+        &:hover {
+          a {
+
+            &:before {
+              width: 100%;
+              transition: all 0.3s;
+            }
+          }
+        }
+
+        a {
+          text-decoration: none;
+          margin-right: 15px;
+          display: block;
+          position: relative;
+          font-size: 25px;
+          font-weight: 500;
+          color: rgba(0, 0, 0, 0.6);
+          transition: 0.2s ease-out;
+          width: fit-content;
+          @media(max-width: 1199.98px) {
+            font-style: normal;
+            font-weight: 600;
+            font-size: calc(1vw + 13px);
+            line-height: 32px;
+          }
+
+
+          &:hover {
+            color: #000;
+          }
+
+          &:before {
+            content: "";
+            position: absolute;
+            width: 0;
+            bottom: -7px;
+            left: 0;
+            height: 2px;
+            background-color: #000;
+
+            transition: all 0.3s;
+          }
+
+          &.more {
+            &:after {
+              content: url("/src/assets/img/Vector.png");
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              right: -15px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+          }
+        }
+      }
+    }
   }
 }
