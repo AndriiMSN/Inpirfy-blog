@@ -9,6 +9,7 @@ if (document.querySelector('.main-sliders__body')) {
         controls: false,
         speed: 400,
         navContainer: "#customize-thumbnails",
+        mouseDrag:true
     });
 
 
@@ -26,6 +27,7 @@ if (document.querySelector('.main-sliders__body')) {
         controls: false,
         speed: 400,
         navContainer: "#customize-thumbnails-1",
+        mouseDrag:true
     });
 
 
