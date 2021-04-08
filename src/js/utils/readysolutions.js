@@ -34,7 +34,7 @@ window.onresize = () => fitSubHeader(document.documentElement.clientWidth / 5)
 const subHeaderItem = document.querySelector('.sub-header ')
 window.onscroll = function (e) {
 
-    if (this.scrollY > 0 && window.innerWidth >= 1200) {
+    if (this.scrollY > 0 ) {
         if ((this.oldScroll > this.scrollY) && this.scrollY >= 0) {
 
             header.classList.add('scroll-up');

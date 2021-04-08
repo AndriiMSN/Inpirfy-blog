@@ -1,4 +1,4 @@
-const moreBtn = document.querySelector('.sub-header li a.more')
+const moreBtn = document.querySelector('.sub-header li.more')
 const moreMenuCtg = document.querySelector('.mob-menu-ctg.ctg')
 const closeBtnCtg = moreMenuCtg.querySelector('.header button')
 
